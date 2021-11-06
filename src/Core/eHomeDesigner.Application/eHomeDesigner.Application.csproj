@@ -4,4 +4,18 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Interfaces\POCOs\Devices\" />
+    <Folder Include="Interfaces\POCOs\Doors\" />
+    <Folder Include="Interfaces\POCOs\Homes\" />
+    <Folder Include="Interfaces\POCOs\Wallpapers\" />
+    <Folder Include="Interfaces\POCOs\Rooms\" />
+    <Folder Include="POCOs\Devices\" />
+    <Folder Include="POCOs\Doors\" />
+    <Folder Include="POCOs\Homes\" />
+    <Folder Include="POCOs\Wallpapers\" />
+    <Folder Include="POCOs\Rooms\" />
+  </ItemGroup>
+
 </Project>

@@ -19,4 +19,16 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="POCOs\Devices\" />
+    <Folder Include="POCOs\Doors\" />
+    <Folder Include="POCOs\Homes\" />
+    <Folder Include="POCOs\Rooms\" />
+    <Folder Include="POCOs\Wallpapers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Core\eHomeDesigner.Application\eHomeDesigner.Application.csproj" />
+  </ItemGroup>
+
 </Project>
