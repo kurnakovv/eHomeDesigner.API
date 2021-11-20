@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="POCOs\Doors\" />
     <Folder Include="POCOs\Homes\" />
-    <Folder Include="POCOs\Rooms\" />
     <Folder Include="POCOs\Wallpapers\" />
   </ItemGroup>
 
