@@ -24,10 +24,10 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
         }
 
         [Fact]
-        public void GetDevices_CanGetDevices_Devices()
+        public void Devices_CanGetDevices_Devices()
         {
             // Act
-            IReadOnlyCollection<IDevice> result = _room.GetDevices();
+            IReadOnlyCollection<IDevice> result = _room.Devices;
 
             // Assert
             Assert.NotNull(result);
@@ -35,10 +35,10 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
         }
 
         [Fact]
-        public void GetFurnitures_CanGetFurnitures_Furnitures()
+        public void Furnitures_CanGetFurnitures_Furnitures()
         {
             // Act
-            IReadOnlyCollection<IFurniture> result = _room.GetFurnitures();
+            IReadOnlyCollection<IFurniture> result = _room.Furnitures;
 
             // Assert
             Assert.NotNull(result);

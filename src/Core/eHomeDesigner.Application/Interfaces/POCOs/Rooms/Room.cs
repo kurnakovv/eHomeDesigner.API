@@ -13,6 +13,9 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 
         public int SquareMeters { get; }
 
+	    public IReadOnlyCollection<IFurniture> Furnitures => _furnitures.ToList();
+	    public IReadOnlyCollection<IDevice> Devices => _devices.ToList();
+
         private IList<IFurniture> _furnitures = new List<IFurniture>();
         private IList<IDevice> _devices = new List<IDevice>();
 
@@ -26,17 +29,6 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
         {
             CustomerId = customerId;
             SquareMeters = squareMeters;
-        }
-
-
-        public virtual IReadOnlyCollection<IDevice> GetDevices()
-        {
-            return _devices.ToList();
-        }
-
-        public virtual IReadOnlyCollection<IFurniture> GetFurnitures()
-        {
-            return _furnitures.ToList();
         }
 
         public virtual void AddDevice(IDevice device)

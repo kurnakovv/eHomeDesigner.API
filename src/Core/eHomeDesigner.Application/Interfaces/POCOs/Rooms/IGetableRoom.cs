@@ -6,7 +6,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 {
     public interface IGetableRoom
     {
-        IReadOnlyCollection<IFurniture> GetFurnitures();
-        IReadOnlyCollection<IDevice> GetDevices();
+        IReadOnlyCollection<IFurniture> Furnitures { get; }
+        IReadOnlyCollection<IDevice> Devices { get; }
     }
 }
