@@ -2,7 +2,7 @@
 
 namespace eHomeDesigner.Application.Interfaces.POCOs.Devices
 {
-    public interface IDevice
+    public interface IDevice : IPOCO
     {
         Guid Id { get; }
         string Type { get; }

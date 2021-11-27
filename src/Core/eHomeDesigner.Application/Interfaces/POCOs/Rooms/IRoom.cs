@@ -2,7 +2,7 @@
 
 namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 {
-    public interface IRoom : IGetableRoom, IEditableRoom, ICalculableRoom
+    public interface IRoom : IPOCO, IGetableRoom, IEditableRoom, ICalculableRoom
     {
         Guid Id { get; }
         Guid CustomerId { get; }

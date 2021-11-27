@@ -2,7 +2,7 @@
 
 namespace eHomeDesigner.Application.Interfaces.POCOs.Furnitures
 {
-    public interface IFurniture
+    public interface IFurniture : IPOCO
     {
         Guid Id { get; }
         string Type { get; }
