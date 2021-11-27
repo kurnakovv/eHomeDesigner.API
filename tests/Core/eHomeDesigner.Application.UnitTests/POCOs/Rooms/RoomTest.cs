@@ -11,7 +11,7 @@ using Xunit;
 
 namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
 {
-    public class RoomTest : IDisposable
+    public class RoomTest
     {
         private static Mock<IDeviceRepository> _deviceRepository = new Mock<IDeviceRepository>();
         private Room _room = new DefaultRoom(Guid.NewGuid(), 10000, _deviceRepository.Object);
@@ -120,12 +120,6 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
 
             // Assert
             Assert.Null(exception);
-        }
-
-        public void Dispose()
-        {
-            _room.DeleteFurniture(_furnitureId);
-            _room.DeleteDevice(_deviceId);
         }
     }
 }
