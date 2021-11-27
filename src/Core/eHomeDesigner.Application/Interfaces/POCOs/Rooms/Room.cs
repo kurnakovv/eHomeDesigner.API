@@ -12,7 +12,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
         public Guid Id { get; } = Guid.NewGuid();
         public Guid CustomerId { get; }
 
-        public virtual string Type { get; }
+        public abstract string Type { get; }
 
         public int SquareMeters { get; }
 

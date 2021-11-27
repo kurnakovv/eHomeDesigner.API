@@ -15,5 +15,7 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
                    IFurnitureRepository furnitureRepository,
                    IDeviceRepository deviceRepository
                ) : base(customerId, squareMeters, furnitureRepository, deviceRepository) { }
+
+        public override string Type => throw new NotImplementedException();
     }
 }
