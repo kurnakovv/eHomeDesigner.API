@@ -12,7 +12,8 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
         public DefaultRoom(
                    Guid customerId,
                    int squareMeters,
+                   IFurnitureRepository furnitureRepository,
                    IDeviceRepository deviceRepository
-               ) : base(customerId, squareMeters, deviceRepository) { }
+               ) : base(customerId, squareMeters, furnitureRepository, deviceRepository) { }
     }
 }

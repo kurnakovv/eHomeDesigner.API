@@ -13,8 +13,9 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
 {
     public class RoomTest
     {
+        private static Mock<IFurnitureRepository> _furnitureRepository = new Mock<IFurnitureRepository>();
         private static Mock<IDeviceRepository> _deviceRepository = new Mock<IDeviceRepository>();
-        private Room _room = new DefaultRoom(Guid.NewGuid(), 10000, _deviceRepository.Object);
+        private Room _room = new DefaultRoom(Guid.NewGuid(), 10000, _furnitureRepository.Object, _deviceRepository.Object);
         private static Guid _furnitureId = Guid.NewGuid();
         private static Guid _deviceId = Guid.NewGuid();
         private IFurniture _furniture = new Sofa(_furnitureId, 1000, 100);
@@ -23,7 +24,7 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
         public RoomTest()
         {
             _deviceRepository.Setup(x => x.GetAll()).Returns(new List<IDevice>() { _device });
-            _room.AddFurniture(_furniture);
+            _furnitureRepository.Setup(x => x.GetAll()).Returns(new List<IFurniture>() { _furniture });
         }
 
         [Fact]

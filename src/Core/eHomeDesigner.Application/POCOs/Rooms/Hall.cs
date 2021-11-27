@@ -9,8 +9,9 @@ namespace eHomeDesigner.Application.POCOs.Rooms
         public Hall(
                    Guid customerId,
                    int squareMeters,
+                   IFurnitureRepository furnitureRepository,
                    IDeviceRepository deviceRepository
-               ) : base(customerId, squareMeters, deviceRepository) { }
+               ) : base(customerId, squareMeters, furnitureRepository, deviceRepository) { }
 
         public override string Type => GetType().Name;
     }

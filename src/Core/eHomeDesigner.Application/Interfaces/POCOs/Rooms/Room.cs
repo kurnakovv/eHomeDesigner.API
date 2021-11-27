@@ -16,10 +16,10 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 
         public int SquareMeters { get; }
 
-	    public IReadOnlyCollection<IFurniture> Furnitures => _furnitures.ToList();
+	    public IReadOnlyCollection<IFurniture> Furnitures => _furnitureRepository.GetAll();
 	    public IReadOnlyCollection<IDevice> Devices => _deviceRepository.GetAll();
 
-        private IList<IFurniture> _furnitures = new List<IFurniture>();
+        private readonly IFurnitureRepository _furnitureRepository;
         private readonly IDeviceRepository _deviceRepository;
 
         private int _energy = 0;
@@ -28,13 +28,14 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
         public Room(
                    Guid customerId,
                    int squareMeters,
+                   IFurnitureRepository furnitureRepository,
                    IDeviceRepository deviceRepository
                )
         {
             CustomerId = customerId;
             SquareMeters = squareMeters;
+            _furnitureRepository = furnitureRepository;
             _deviceRepository = deviceRepository;
-
         }
 
         public virtual void AddDevice(IDevice device)
@@ -44,7 +45,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 
         public virtual void AddFurniture(IFurniture furniture)
         {
-            _furnitures.Add(furniture);
+            _furnitureRepository.Add(furniture);
         }
 
         public virtual void DeleteDevice(Guid id)
@@ -54,8 +55,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 
         public virtual void DeleteFurniture(Guid id)
         {
-            IFurniture furniture = _furnitures.FirstOrDefault(f => f.Id == id);
-            _furnitures.Remove(furniture);
+            _furnitureRepository.DeleteById(id);
         }
 
         public virtual int CalculateEnergyPerDay()
@@ -79,7 +79,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
                 _price += device.Price;
             }
 
-            foreach (IFurniture furniture in _furnitures)
+            foreach (IFurniture furniture in Furnitures)
             {
                 _price += furniture.Price;
             }
