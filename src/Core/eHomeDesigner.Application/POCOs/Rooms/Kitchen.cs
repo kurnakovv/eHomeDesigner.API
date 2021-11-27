@@ -1,4 +1,5 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Rooms;
+using eHomeDesigner.Application.Interfaces.Repositories;
 using System;
 
 namespace eHomeDesigner.Application.POCOs.Rooms
@@ -7,8 +8,9 @@ namespace eHomeDesigner.Application.POCOs.Rooms
     {
         public Kitchen(
                    Guid customerId,
-                   int squareMeters
-               ) : base(customerId, squareMeters) { }
+                   int squareMeters,
+                   IDeviceRepository deviceRepository
+               ) : base(customerId, squareMeters, deviceRepository) { }
 
         public override string Type => GetType().Name;
     }

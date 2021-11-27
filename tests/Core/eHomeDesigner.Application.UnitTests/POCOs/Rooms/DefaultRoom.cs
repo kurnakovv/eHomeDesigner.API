@@ -1,4 +1,5 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Rooms;
+using eHomeDesigner.Application.Interfaces.Repositories;
 using System;
 
 namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
@@ -10,7 +11,8 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
     {
         public DefaultRoom(
                    Guid customerId,
-                   int squareMeters
-               ) : base(customerId, squareMeters) { }
+                   int squareMeters,
+                   IDeviceRepository deviceRepository
+               ) : base(customerId, squareMeters, deviceRepository) { }
     }
 }

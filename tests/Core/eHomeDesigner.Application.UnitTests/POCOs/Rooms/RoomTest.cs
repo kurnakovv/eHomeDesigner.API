@@ -1,8 +1,10 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Devices;
 using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
 using eHomeDesigner.Application.Interfaces.POCOs.Rooms;
+using eHomeDesigner.Application.Interfaces.Repositories;
 using eHomeDesigner.Application.POCOs.Devices;
 using eHomeDesigner.Application.POCOs.Furnitures;
+using Moq;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -11,7 +13,8 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
 {
     public class RoomTest : IDisposable
     {
-        private Room _room = new DefaultRoom(Guid.NewGuid(), 10000);
+        private static Mock<IDeviceRepository> _deviceRepository = new Mock<IDeviceRepository>();
+        private Room _room = new DefaultRoom(Guid.NewGuid(), 10000, _deviceRepository.Object);
         private static Guid _furnitureId = Guid.NewGuid();
         private static Guid _deviceId = Guid.NewGuid();
         private IFurniture _furniture = new Sofa(_furnitureId, 1000, 100);
@@ -19,8 +22,8 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
 
         public RoomTest()
         {
+            _deviceRepository.Setup(x => x.GetAll()).Returns(new List<IDevice>() { _device });
             _room.AddFurniture(_furniture);
-            _room.AddDevice(_device);
         }
 
         [Fact]
@@ -89,7 +92,8 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Rooms
         public void CalculateEnergyPerDay_CanCalculateEnergyPerDay_Energy()
         {
             // Arrange
-            _room.AddDevice(new Computer(Guid.NewGuid(), 1000, 10, 20, "Some author"));
+            IDevice computer = new Computer(Guid.NewGuid(), 1000, 10, 20, "Some author");
+            _deviceRepository.Setup(x => x.GetAll()).Returns(new List<IDevice>() { _device, computer });
 
             // Act
             int result = _room.CalculateEnergyPerDay();

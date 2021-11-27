@@ -1,5 +1,6 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Devices;
 using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
+using eHomeDesigner.Application.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,26 +17,29 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
         public int SquareMeters { get; }
 
 	    public IReadOnlyCollection<IFurniture> Furnitures => _furnitures.ToList();
-	    public IReadOnlyCollection<IDevice> Devices => _devices.ToList();
+	    public IReadOnlyCollection<IDevice> Devices => _deviceRepository.GetAll();
 
         private IList<IFurniture> _furnitures = new List<IFurniture>();
-        private IList<IDevice> _devices = new List<IDevice>();
+        private readonly IDeviceRepository _deviceRepository;
 
         private int _energy = 0;
         private int _price = 0;
 
         public Room(
                    Guid customerId,
-                   int squareMeters
+                   int squareMeters,
+                   IDeviceRepository deviceRepository
                )
         {
             CustomerId = customerId;
             SquareMeters = squareMeters;
+            _deviceRepository = deviceRepository;
+
         }
 
         public virtual void AddDevice(IDevice device)
         {
-            _devices.Add(device);
+            _deviceRepository.Add(device);
         }
 
         public virtual void AddFurniture(IFurniture furniture)
@@ -45,8 +49,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 
         public virtual void DeleteDevice(Guid id)
         {
-            IDevice device = _devices.FirstOrDefault(d => d.Id == id);
-            _devices.Remove(device);
+            _deviceRepository.DeleteById(id);
         }
 
         public virtual void DeleteFurniture(Guid id)
@@ -59,7 +62,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
         {
             _energy = 0;
             
-            foreach (IDevice device in _devices)
+            foreach (IDevice device in Devices)
             {
                 _energy += device.CalculateEnergyPerDay(1);
             }
@@ -71,7 +74,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
         {
             _price = 0;
 
-            foreach (IDevice device in _devices)
+            foreach (IDevice device in Devices)
             {
                 _price += device.Price;
             }
