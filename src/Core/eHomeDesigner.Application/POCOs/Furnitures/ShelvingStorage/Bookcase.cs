@@ -1,9 +1,9 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
 using System;
 
-namespace eHomeDesigner.Application.POCOs.Furnitures.Wardrobes
+namespace eHomeDesigner.Application.POCOs.Furnitures.ShelvingStorage
 {
-    public class Cupboard : IShelvingStorage
+    public class Bookcase : IShelvingStorage
     {
         public Guid Id { get; }
 
@@ -13,7 +13,7 @@ namespace eHomeDesigner.Application.POCOs.Furnitures.Wardrobes
         public int SquareMeters { get; }
         public int Length { get; }
 
-        public Cupboard(
+        public Bookcase(
                 Guid id,
                 int price,
                 int squareMeters,

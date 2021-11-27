@@ -1,7 +1,7 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
 using System;
 
-namespace eHomeDesigner.Application.POCOs.Furnitures.Wardrobes
+namespace eHomeDesigner.Application.POCOs.Furnitures.ShelvingStorage
 {
     public class Wardrobe : IShelvingStorage
     {
