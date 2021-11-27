@@ -7,17 +7,26 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.Wardrobes
 {
     public class BookcaseTest 
     { 
+        private readonly IWardrobe _bookcase = new Bookcase(
+                                                       Guid.NewGuid(),
+                                                       1000,
+                                                       10,
+                                                       50
+                                                   );
         [Fact]
         public void CanInitBookcase_Bookcase()
         {
-            IWardrobe bookcase = new Bookcase(
-                                         Guid.NewGuid(),
-                                         1000,
-                                         10,
-                                         50
-                                     );
+            Assert.NotNull(_bookcase);
+        }
 
-            Assert.NotNull(bookcase);
+        [Fact]
+        public void Type_CanGetType_Bookcase()
+        {
+            // Act
+            string result = _bookcase.Type;
+
+            // Assert
+            Assert.Equal("Bookcase", result);
         }
     }
 }

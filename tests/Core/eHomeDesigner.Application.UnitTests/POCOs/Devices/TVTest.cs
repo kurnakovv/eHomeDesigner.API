@@ -22,6 +22,16 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Devices
         }
 
         [Fact]
+        public void Type_CanGetType_TV()
+        {
+            // Act
+            string result = _tv.Type;
+
+            // Assert
+            Assert.Equal("TV", result);
+        }
+
+        [Fact]
         public void CalculateEnergyPerDay_CanCalculateEnergyPerTwoDays_3360()
         {
             // Arrange

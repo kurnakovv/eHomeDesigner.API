@@ -7,6 +7,8 @@ namespace eHomeDesigner.Application.POCOs.Devices
     {
         public Guid Id { get; }
 
+        public string Type => GetType().Name;
+
         public int Price { get; }
         public int SquareMeters { get; }
         public int EnergyPerHour { get; }

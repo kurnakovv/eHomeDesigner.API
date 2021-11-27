@@ -7,17 +7,26 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.Wardrobes
 {
     public class WardrobeTest
     {
+        private readonly IWardrobe _wardrobe = new Wardrobe(
+                                                       Guid.NewGuid(),
+                                                       1000,
+                                                       10,
+                                                       50
+                                                   );
         [Fact]
         public void CanInitWardrobe_Wardrobe()
         {
-            IWardrobe wardrobe = new Wardrobe(
-                                        Guid.NewGuid(),
-                                        1000,
-                                        10,
-                                        50
-                                     );
+            Assert.NotNull(_wardrobe);
+        }
 
-            Assert.NotNull(wardrobe);
+        [Fact]
+        public void Type_CanGetType_Wardrobe()
+        {
+            // Act
+            string result = _wardrobe.Type;
+
+            // Assert
+            Assert.Equal("Wardrobe", result);
         }
     }
 }

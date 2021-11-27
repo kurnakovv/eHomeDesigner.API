@@ -7,6 +7,8 @@ namespace eHomeDesigner.Application.POCOs.Furnitures.Wardrobes
     {
         public Guid Id { get; }
 
+        public string Type => GetType().Name;
+
         public int Price { get; }
         public int SquareMeters { get; }
         public int Length { get; }

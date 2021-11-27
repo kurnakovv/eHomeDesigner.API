@@ -9,5 +9,7 @@ namespace eHomeDesigner.Application.POCOs.Rooms
                    Guid customerId,
                    int squareMeters
                ) : base(customerId, squareMeters) { }
+
+        public override string Type => GetType().Name;
     }
 }

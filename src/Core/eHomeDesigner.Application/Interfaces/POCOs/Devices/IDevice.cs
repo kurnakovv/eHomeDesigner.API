@@ -5,6 +5,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Devices
     public interface IDevice
     {
         Guid Id { get; }
+        string Type { get; }
         int Price { get; }
         int SquareMeters { get; }
         int EnergyPerHour { get; }

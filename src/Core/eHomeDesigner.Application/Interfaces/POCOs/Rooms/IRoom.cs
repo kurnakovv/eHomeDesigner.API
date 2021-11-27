@@ -6,6 +6,7 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
     {
         Guid Id { get; }
         Guid CustomerId { get; }
+        string Type { get; }
         int SquareMeters { get; }
     }
 }

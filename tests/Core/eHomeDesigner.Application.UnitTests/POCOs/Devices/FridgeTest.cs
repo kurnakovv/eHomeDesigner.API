@@ -22,6 +22,16 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Devices
         }
 
         [Fact]
+        public void Type_CanGetType_Fridge()
+        {
+            // Act
+            string result = _fridge.Type;
+
+            // Assert
+            Assert.Equal("Fridge", result);
+        }
+
+        [Fact]
         public void CalculateEnergyPerDay_CanCalculateEnergyPerTwoDays_4800()
         {
             // Arrange

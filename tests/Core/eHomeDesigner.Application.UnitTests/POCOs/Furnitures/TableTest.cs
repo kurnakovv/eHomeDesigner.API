@@ -7,16 +7,26 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures
 {
     public class TableTest
     {
+        private readonly IFurniture _table = new Table(
+                                                     Guid.NewGuid(),
+                                                     800,
+                                                     15
+                                                 );
+
         [Fact]
         public void CanInitTable_Table()
         {
-            IFurniture table = new Table(
-                                       Guid.NewGuid(),
-                                       800,
-                                       15
-                                   );
+            Assert.NotNull(_table);
+        }
 
-            Assert.NotNull(table);
+        [Fact]
+        public void Type_CanGetType_Table()
+        {
+            // Act
+            string result = _table.Type;
+
+            // Assert
+            Assert.Equal("Table", result);
         }
     }
 }

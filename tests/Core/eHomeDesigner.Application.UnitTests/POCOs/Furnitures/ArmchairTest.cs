@@ -7,16 +7,25 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures
 {
     public class ArmchairTest
     {
+        private readonly IFurniture _armchair = new Armchair(
+                                                        Guid.NewGuid(),
+                                                        1000,
+                                                        5
+                                                    );
         [Fact]
         public void CanInitArmchair_Armchair()
         {
-            IFurniture armchair = new Armchair(
-                                        Guid.NewGuid(),
-                                        1000,
-                                        5
-                                      );
+            Assert.NotNull(_armchair);
+        }
 
-            Assert.NotNull(armchair);
+        [Fact]
+        public void Type_CanGetType_Armchair()
+        {
+            // Act
+            string result = _armchair.Type;
+
+            // Assert
+            Assert.Equal("Armchair", result);
         }
     }
 }

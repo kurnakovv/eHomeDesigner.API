@@ -22,6 +22,16 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Devices
         }
 
         [Fact]
+        public void Type_CanGetType_Computer()
+        {
+            // Act
+            string result = _computer.Type;
+
+            // Assert
+            Assert.Equal("Computer", result);
+        }
+
+        [Fact]
         public void CalculateEnergyPerDay_CanCalculateEnergyPerTwoDays_9600()
         {
             // Arrange
