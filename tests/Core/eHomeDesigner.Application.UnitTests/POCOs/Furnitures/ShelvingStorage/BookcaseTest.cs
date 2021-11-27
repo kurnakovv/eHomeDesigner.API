@@ -1,33 +1,32 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
-using eHomeDesigner.Application.POCOs.Furnitures.Wardrobes;
+using eHomeDesigner.Application.POCOs.Furnitures.ShelvingStorage;
 using System;
 using Xunit;
 
-namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.Wardrobes
+namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.ShelvingStorage
 {
-    public class CupboardTest
-    {
-        private readonly IWardrobe _cupboard = new Cupboard(
+    public class BookcaseTest 
+    { 
+        private readonly IShelvingStorage _bookcase = new Bookcase(
                                                        Guid.NewGuid(),
                                                        1000,
                                                        10,
                                                        50
                                                    );
-
         [Fact]
-        public void CanInitCupboard_Cupboard()
+        public void CanInitBookcase_Bookcase()
         {
-            Assert.NotNull(_cupboard);
+            Assert.NotNull(_bookcase);
         }
 
         [Fact]
-        public void Type_CanGetType_Cupboard()
+        public void Type_CanGetType_Bookcase()
         {
             // Act
-            string result = _cupboard.Type;
+            string result = _bookcase.Type;
 
             // Assert
-            Assert.Equal("Cupboard", result);
+            Assert.Equal("Bookcase", result);
         }
     }
 }

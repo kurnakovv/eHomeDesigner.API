@@ -1,13 +1,13 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
-using eHomeDesigner.Application.POCOs.Furnitures.Wardrobes;
+using eHomeDesigner.Application.POCOs.Furnitures.ShelvingStorage;
 using System;
 using Xunit;
 
-namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.Wardrobes
+namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.ShelvingStorage
 {
     public class WardrobeTest
     {
-        private readonly IWardrobe _wardrobe = new Wardrobe(
+        private readonly IShelvingStorage _wardrobe = new Wardrobe(
                                                        Guid.NewGuid(),
                                                        1000,
                                                        10,
