@@ -89,7 +89,8 @@ namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
 
         public virtual void Save()
         {
-            // TODO: Add save logic.
+            _furnitureRepository.Commit();
+            _deviceRepository.Commit();
         }
     }
 }

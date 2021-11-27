@@ -11,5 +11,8 @@ namespace eHomeDesigner.Application.Interfaces.Repositories
         void Add(IPOCO poco);
         void Update(Guid id, TPOCO poco);
         void DeleteById(Guid id);
+
+        // TODO: Add UnitOfWork pattern.
+        void Commit();
     }
 }
