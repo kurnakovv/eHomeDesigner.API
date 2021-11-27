@@ -3,7 +3,7 @@ using System;
 
 namespace eHomeDesigner.Application.POCOs.Furnitures.Wardrobes
 {
-    public class Cupboard : IWardrobe
+    public class Cupboard : IShelvingStorage
     {
         public Guid Id { get; }
 

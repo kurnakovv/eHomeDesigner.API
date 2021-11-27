@@ -7,7 +7,7 @@ namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.Wardrobes
 {
     public class CupboardTest
     {
-        private readonly IWardrobe _cupboard = new Cupboard(
+        private readonly IShelvingStorage _cupboard = new Cupboard(
                                                        Guid.NewGuid(),
                                                        1000,
                                                        10,
