@@ -1,7 +1,6 @@
-﻿namespace eHomeDesigner.Application.Interfaces.POCOs.Furnitures
+﻿namespace eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
+
+public interface IShelvingStorage : IFurniture
 {
-    public interface IShelvingStorage : IFurniture
-    {
-        int Length { get; }
-    }
+    int Length { get; }
 }

@@ -1,8 +1,7 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Devices;
 
-namespace eHomeDesigner.Application.Interfaces.Repositories
+namespace eHomeDesigner.Application.Interfaces.Repositories;
+
+public interface IDeviceRepository : IRepository<IDevice>
 {
-    public interface IDeviceRepository : IRepository<IDevice>
-    {
-    }
 }

@@ -2,15 +2,14 @@
 using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
 using System;
 
-namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
-{
-    public interface IEditableRoom
-    {
-        void AddFurniture(IFurniture furniture);
-        void AddDevice(IDevice device);
-        void DeleteFurniture(Guid id);
-        void DeleteDevice(Guid id);
+namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
 
-        void Save();
-    }
+public interface IEditableRoom
+{
+    void AddFurniture(IFurniture furniture);
+    void AddDevice(IDevice device);
+    void DeleteFurniture(Guid id);
+    void DeleteDevice(Guid id);
+
+    void Save();
 }

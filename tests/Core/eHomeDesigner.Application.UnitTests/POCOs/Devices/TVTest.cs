@@ -3,58 +3,57 @@ using eHomeDesigner.Application.POCOs.Devices;
 using System;
 using Xunit;
 
-namespace eHomeDesigner.Application.UnitTests.POCOs.Devices
+namespace eHomeDesigner.Application.UnitTests.POCOs.Devices;
+
+public class TVTest
 {
-    public class TVTest
+    private readonly IDevice _tv = new TV(
+                                      Guid.NewGuid(),
+                                      15000,
+                                      3,
+                                      70,
+                                      "TV author"
+                                 );
+
+    [Fact]
+    public void CanInitTV_TV()
     {
-        private readonly IDevice _tv = new TV(
-                                          Guid.NewGuid(),
-                                          15000,
-                                          3,
-                                          70,
-                                          "TV author"
-                                     );
+        Assert.NotNull(_tv);
+    }
 
-        [Fact]
-        public void CanInitTV_TV()
-        {
-            Assert.NotNull(_tv);
-        }
+    [Fact]
+    public void Type_CanGetType_TV()
+    {
+        // Act
+        string result = _tv.Type;
 
-        [Fact]
-        public void Type_CanGetType_TV()
-        {
-            // Act
-            string result = _tv.Type;
+        // Assert
+        Assert.Equal("TV", result);
+    }
 
-            // Assert
-            Assert.Equal("TV", result);
-        }
+    [Fact]
+    public void CalculateEnergyPerDay_CanCalculateEnergyPerTwoDays_3360()
+    {
+        // Arrange
+        int days = 2;
 
-        [Fact]
-        public void CalculateEnergyPerDay_CanCalculateEnergyPerTwoDays_3360()
-        {
-            // Arrange
-            int days = 2;
+        // Act
+        int result = _tv.CalculateEnergyPerDay(days);
 
-            // Act
-            int result = _tv.CalculateEnergyPerDay(days);
+        // Assert
+        Assert.Equal(3360, result);
+    }
 
-            // Assert
-            Assert.Equal(3360, result);
-        }
+    [Fact]
+    public void CalculateEnergyPrice_CanCalculateEnergyPrice_1000()
+    {
+        // Arrange
+        var energy = 5000;
 
-        [Fact]
-        public void CalculateEnergyPrice_CanCalculateEnergyPrice_1000()
-        {
-            // Arrange
-            var energy = 5000;
+        // Act
+        int result = _tv.CalculateEnergyPrice(energy);
 
-            // Act
-            int result = _tv.CalculateEnergyPrice(energy);
-
-            // Assert
-            Assert.Equal(1000, result);
-        }
+        // Assert
+        Assert.Equal(1000, result);
     }
 }

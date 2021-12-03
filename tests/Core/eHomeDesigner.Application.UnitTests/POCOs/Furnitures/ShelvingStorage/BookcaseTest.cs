@@ -3,30 +3,29 @@ using eHomeDesigner.Application.POCOs.Furnitures.ShelvingStorage;
 using System;
 using Xunit;
 
-namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.ShelvingStorage
+namespace eHomeDesigner.Application.UnitTests.POCOs.Furnitures.ShelvingStorage;
+
+public class BookcaseTest
 {
-    public class BookcaseTest 
-    { 
-        private readonly IShelvingStorage _bookcase = new Bookcase(
-                                                       Guid.NewGuid(),
-                                                       1000,
-                                                       10,
-                                                       50
-                                                   );
-        [Fact]
-        public void CanInitBookcase_Bookcase()
-        {
-            Assert.NotNull(_bookcase);
-        }
+    private readonly IShelvingStorage _bookcase = new Bookcase(
+                                                   Guid.NewGuid(),
+                                                   1000,
+                                                   10,
+                                                   50
+                                               );
+    [Fact]
+    public void CanInitBookcase_Bookcase()
+    {
+        Assert.NotNull(_bookcase);
+    }
 
-        [Fact]
-        public void Type_CanGetType_Bookcase()
-        {
-            // Act
-            string result = _bookcase.Type;
+    [Fact]
+    public void Type_CanGetType_Bookcase()
+    {
+        // Act
+        string result = _bookcase.Type;
 
-            // Assert
-            Assert.Equal("Bookcase", result);
-        }
+        // Assert
+        Assert.Equal("Bookcase", result);
     }
 }

@@ -5,92 +5,91 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
+namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
+
+public abstract class Room : IRoom
 {
-    public abstract class Room : IRoom
+    public Guid Id { get; } = Guid.NewGuid();
+    public Guid CustomerId { get; }
+
+    public abstract string Type { get; }
+
+    public int SquareMeters { get; }
+
+    public IReadOnlyCollection<IFurniture> Furnitures => _furnitureRepository.GetAll();
+    public IReadOnlyCollection<IDevice> Devices => _deviceRepository.GetAll();
+
+    private readonly IFurnitureRepository _furnitureRepository;
+    private readonly IDeviceRepository _deviceRepository;
+
+    private int _energy = 0;
+    private int _price = 0;
+
+    public Room(
+               Guid customerId,
+               int squareMeters,
+               IFurnitureRepository furnitureRepository,
+               IDeviceRepository deviceRepository
+           )
     {
-        public Guid Id { get; } = Guid.NewGuid();
-        public Guid CustomerId { get; }
+        CustomerId = customerId;
+        SquareMeters = squareMeters;
+        _furnitureRepository = furnitureRepository;
+        _deviceRepository = deviceRepository;
+    }
 
-        public abstract string Type { get; }
+    public virtual void AddDevice(IDevice device)
+    {
+        _deviceRepository.Add(device);
+    }
 
-        public int SquareMeters { get; }
+    public virtual void AddFurniture(IFurniture furniture)
+    {
+        _furnitureRepository.Add(furniture);
+    }
 
-	    public IReadOnlyCollection<IFurniture> Furnitures => _furnitureRepository.GetAll();
-	    public IReadOnlyCollection<IDevice> Devices => _deviceRepository.GetAll();
+    public virtual void DeleteDevice(Guid id)
+    {
+        _deviceRepository.DeleteById(id);
+    }
 
-        private readonly IFurnitureRepository _furnitureRepository;
-        private readonly IDeviceRepository _deviceRepository;
+    public virtual void DeleteFurniture(Guid id)
+    {
+        _furnitureRepository.DeleteById(id);
+    }
 
-        private int _energy = 0;
-        private int _price = 0;
+    public virtual int CalculateEnergyPerDay()
+    {
+        _energy = 0;
 
-        public Room(
-                   Guid customerId,
-                   int squareMeters,
-                   IFurnitureRepository furnitureRepository,
-                   IDeviceRepository deviceRepository
-               )
+        foreach (IDevice device in Devices)
         {
-            CustomerId = customerId;
-            SquareMeters = squareMeters;
-            _furnitureRepository = furnitureRepository;
-            _deviceRepository = deviceRepository;
+            _energy += device.CalculateEnergyPerDay(1);
         }
 
-        public virtual void AddDevice(IDevice device)
+        return _energy;
+    }
+
+    public virtual int CalculatePrice()
+    {
+        _price = 0;
+
+        foreach (IDevice device in Devices)
         {
-            _deviceRepository.Add(device);
+            _price += device.Price;
         }
 
-        public virtual void AddFurniture(IFurniture furniture)
+        foreach (IFurniture furniture in Furnitures)
         {
-            _furnitureRepository.Add(furniture);
+            _price += furniture.Price;
         }
 
-        public virtual void DeleteDevice(Guid id)
-        {
-            _deviceRepository.DeleteById(id);
-        }
+        return _price;
+    }
 
-        public virtual void DeleteFurniture(Guid id)
-        {
-            _furnitureRepository.DeleteById(id);
-        }
-
-        public virtual int CalculateEnergyPerDay()
-        {
-            _energy = 0;
-            
-            foreach (IDevice device in Devices)
-            {
-                _energy += device.CalculateEnergyPerDay(1);
-            }
-
-            return _energy;
-        }
-
-        public virtual int CalculatePrice()
-        {
-            _price = 0;
-
-            foreach (IDevice device in Devices)
-            {
-                _price += device.Price;
-            }
-
-            foreach (IFurniture furniture in Furnitures)
-            {
-                _price += furniture.Price;
-            }
-
-            return _price;
-        }
-
-        public virtual void Save()
-        {
-            _furnitureRepository.Commit();
-            _deviceRepository.Commit();
-        }
+    public virtual void Save()
+    {
+        _furnitureRepository.Commit();
+        _deviceRepository.Commit();
     }
 }

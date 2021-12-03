@@ -1,8 +1,7 @@
-﻿namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms
+﻿namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
+
+public interface ICalculableRoom
 {
-    public interface ICalculableRoom
-    {
-        int CalculatePrice();
-        int CalculateEnergyPerDay();
-    }
+    int CalculatePrice();
+    int CalculateEnergyPerDay();
 }
