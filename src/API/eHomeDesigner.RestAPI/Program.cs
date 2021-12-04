@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using eHomeDesigner.Data.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "eHomeDesigner.RestAPI", Version = "v1" });
 });
+builder.Services.SetupDbContext(builder.Configuration.GetConnectionString("eHomeDesigner_Db"));
 
 var app = builder.Build();
 
