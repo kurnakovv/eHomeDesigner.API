@@ -17,5 +17,10 @@ public static class DbContextSetuper
         {
             options.UseSqlServer(connectionString);
         });
+
+        services.AddDbContext<FurnitureDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+        });
     }
 }
