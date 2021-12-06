@@ -1,5 +1,4 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs.Devices;
-using System;
 
 namespace eHomeDesigner.Application.POCOs.Devices;
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
+﻿namespace eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
 
 public interface IFurniture : IPOCO
 {

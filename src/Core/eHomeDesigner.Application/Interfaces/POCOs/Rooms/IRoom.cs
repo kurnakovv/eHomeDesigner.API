@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
+﻿namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
 
 public interface IRoom : IPOCO, IGetableRoom, IEditableRoom, ICalculableRoom
 {

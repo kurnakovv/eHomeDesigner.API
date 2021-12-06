@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace eHomeDesigner.Application.Interfaces.POCOs.Devices;
+﻿namespace eHomeDesigner.Application.Interfaces.POCOs.Devices;
 
 public interface IDevice : IPOCO
 {

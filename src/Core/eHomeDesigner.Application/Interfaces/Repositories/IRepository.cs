@@ -1,6 +1,4 @@
 ﻿using eHomeDesigner.Application.Interfaces.POCOs;
-using System;
-using System.Collections.Generic;
 
 namespace eHomeDesigner.Application.Interfaces.Repositories;
 
