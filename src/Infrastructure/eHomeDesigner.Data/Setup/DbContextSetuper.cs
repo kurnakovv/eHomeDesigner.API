@@ -22,5 +22,10 @@ public static class DbContextSetuper
         {
             options.UseSqlServer(connectionString);
         });
+
+        services.AddDbContext<CustomerDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+        });
     }
 }
