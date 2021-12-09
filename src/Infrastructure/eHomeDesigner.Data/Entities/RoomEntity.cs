@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace eHomeDesigner.Data.Entities;
 
-public class CustomerEntity : BaseEntity
+public class RoomEntity : BaseEntity
 {
+    public CustomerEntity Customer { get; set; }
+    public int SquareMeters { get; set; }
 }
