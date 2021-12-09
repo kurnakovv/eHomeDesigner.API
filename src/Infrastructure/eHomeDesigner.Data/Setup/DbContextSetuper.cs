@@ -32,5 +32,10 @@ public static class DbContextSetuper
         {
             options.UseSqlServer(connectionString);
         });
+
+        services.AddDbContext<ShelvingStorageDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+        });
     }
 }
