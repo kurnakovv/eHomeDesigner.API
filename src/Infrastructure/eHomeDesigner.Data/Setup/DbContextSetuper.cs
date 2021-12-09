@@ -27,5 +27,10 @@ public static class DbContextSetuper
         {
             options.UseSqlServer(connectionString);
         });
+
+        services.AddDbContext<RoomDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+        });
     }
 }

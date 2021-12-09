@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace eHomeDesigner.Data.Contexts;
 
-public class CustomerDbContext : DbContext
+public class RoomDbContext : DbContext
 {
-    public CustomerDbContext(DbContextOptions<CustomerDbContext> options) : base(options) { }
+    public RoomDbContext(DbContextOptions<RoomDbContext> options) : base(options) { }
 
-    public DbSet<CustomerEntity> Customers { get; set; }
+    public DbSet<RoomEntity> Rooms { get; set; }
 }
