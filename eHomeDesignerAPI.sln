@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eHomeDesigner.Converters", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eHomeDesigner.Converters.IntegrationTests", "tests\Infrastructure\eHomeDesigner.Converters.IntegrationTests\eHomeDesigner.Converters.IntegrationTests.csproj", "{5EE1E6CA-1400-44D4-A07C-4672B49E36E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eHomeDesigner.DI", "src\Infrastructure\eHomeDesigner.DI\eHomeDesigner.DI.csproj", "{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +130,18 @@ Global
 		{5EE1E6CA-1400-44D4-A07C-4672B49E36E4}.Release|x64.Build.0 = Release|Any CPU
 		{5EE1E6CA-1400-44D4-A07C-4672B49E36E4}.Release|x86.ActiveCfg = Release|Any CPU
 		{5EE1E6CA-1400-44D4-A07C-4672B49E36E4}.Release|x86.Build.0 = Release|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Debug|x64.Build.0 = Debug|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Debug|x86.Build.0 = Debug|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Release|x64.ActiveCfg = Release|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Release|x64.Build.0 = Release|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Release|x86.ActiveCfg = Release|Any CPU
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F4567638-2BB3-4464-8CB8-0EDD63465A13} = {DFE92793-8D97-41EE-8B78-BEB8324F6236}
@@ -142,5 +156,6 @@ Global
 		{232F55BE-12A4-4A39-804D-0149DFEA8E17} = {B281BA53-4538-498C-933F-35DF1FD24048}
 		{63E61218-2413-4FEE-87F2-01B7A9C2C34A} = {B7BDA42F-F3E9-4522-B978-B5E43E8A394D}
 		{5EE1E6CA-1400-44D4-A07C-4672B49E36E4} = {B281BA53-4538-498C-933F-35DF1FD24048}
+		{72A5FFE5-ED13-4BDD-A076-F0E5E53E0D9B} = {B7BDA42F-F3E9-4522-B978-B5E43E8A394D}
 	EndGlobalSection
 EndGlobal
