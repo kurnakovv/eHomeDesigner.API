@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
 
-public abstract class Room : BasePOCO, IRoom
+public abstract class BaseRoom : BasePOCO, IRoom
 {
     public Guid Id { get; } = Guid.NewGuid();
     public Guid CustomerId { get; }
@@ -19,17 +19,17 @@ public abstract class Room : BasePOCO, IRoom
     public IReadOnlyCollection<IFurniture> Furnitures => _furnitureRepository.GetAll();
     public IReadOnlyCollection<IDevice> Devices => _deviceRepository.GetAll();
 
-    private readonly IFurnitureRepository _furnitureRepository;
-    private readonly IDeviceRepository _deviceRepository;
+    private readonly IFurnitureRepository<BaseFurniture> _furnitureRepository;
+    private readonly IDeviceRepository<BaseDevice> _deviceRepository;
 
     private int _energy = 0;
     private int _price = 0;
 
-    public Room(
+    public BaseRoom(
                Guid customerId,
                int squareMeters,
-               IFurnitureRepository furnitureRepository,
-               IDeviceRepository deviceRepository
+               IFurnitureRepository<BaseFurniture> furnitureRepository,
+               IDeviceRepository<BaseDevice> deviceRepository
            )
     {
         CustomerId = customerId;
