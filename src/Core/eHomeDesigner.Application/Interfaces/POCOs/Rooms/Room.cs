@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
 
-public abstract class Room : IRoom
+public abstract class Room : BasePOCO, IRoom
 {
     public Guid Id { get; } = Guid.NewGuid();
     public Guid CustomerId { get; }
@@ -38,12 +38,12 @@ public abstract class Room : IRoom
         _deviceRepository = deviceRepository;
     }
 
-    public virtual void AddDevice(IDevice device)
+    public virtual void AddDevice(BaseDevice device)
     {
         _deviceRepository.Add(device);
     }
 
-    public virtual void AddFurniture(IFurniture furniture)
+    public virtual void AddFurniture(BaseFurniture furniture)
     {
         _furnitureRepository.Add(furniture);
     }

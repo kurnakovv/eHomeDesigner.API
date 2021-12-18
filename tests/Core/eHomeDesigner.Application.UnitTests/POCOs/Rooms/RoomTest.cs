@@ -18,13 +18,13 @@ public class RoomTest
     private Room _room = new DefaultRoom(Guid.NewGuid(), 10000, _furnitureRepository.Object, _deviceRepository.Object);
     private static Guid _furnitureId = Guid.NewGuid();
     private static Guid _deviceId = Guid.NewGuid();
-    private IFurniture _furniture = new Sofa(_furnitureId, 1000, 100);
-    private IDevice _device = new TV(_deviceId, 10000, 10, 10, "Some author");
+    private BaseFurniture _furniture = new Sofa(_furnitureId, 1000, 100);
+    private BaseDevice _device = new TV(_deviceId, 10000, 10, 10, "Some author");
 
     public RoomTest()
     {
-        _deviceRepository.Setup(x => x.GetAll()).Returns(new List<IDevice>() { _device });
-        _furnitureRepository.Setup(x => x.GetAll()).Returns(new List<IFurniture>() { _furniture });
+        _deviceRepository.Setup(x => x.GetAll()).Returns(new List<BaseDevice>() { _device });
+        _furnitureRepository.Setup(x => x.GetAll()).Returns(new List<BaseFurniture>() { _furniture });
     }
 
     [Fact]
@@ -93,8 +93,8 @@ public class RoomTest
     public void CalculateEnergyPerDay_CanCalculateEnergyPerDay_Energy()
     {
         // Arrange
-        IDevice computer = new Computer(Guid.NewGuid(), 1000, 10, 20, "Some author");
-        _deviceRepository.Setup(x => x.GetAll()).Returns(new List<IDevice>() { _device, computer });
+        BaseDevice computer = new Computer(Guid.NewGuid(), 1000, 10, 20, "Some author");
+        _deviceRepository.Setup(x => x.GetAll()).Returns(new List<BaseDevice>() { _device, computer });
 
         // Act
         int result = _room.CalculateEnergyPerDay();

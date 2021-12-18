@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace eHomeDesigner.Application.Interfaces.Repositories;
 
-public interface IRepository<TPOCO> where TPOCO : IPOCO
+public interface IRepository<TPOCO> where TPOCO : BasePOCO
 {
     IReadOnlyCollection<TPOCO> GetAll();
     TPOCO GetById(Guid id);

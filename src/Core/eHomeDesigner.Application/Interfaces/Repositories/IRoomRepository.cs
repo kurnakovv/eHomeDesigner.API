@@ -2,6 +2,6 @@
 
 namespace eHomeDesigner.Application.Interfaces.Repositories;
 
-public interface IRoomRepository : IRepository<IRoom>
+public interface IRoomRepository : IRepository<Room>
 {
 }
