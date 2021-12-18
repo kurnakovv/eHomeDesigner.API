@@ -28,14 +28,14 @@ public class Repository<TEntity, TPOCO> : IRepository<TPOCO>
         _converter = converter;
     }
 
-    public IReadOnlyCollection<TPOCO> GetAll()
+    public virtual IReadOnlyCollection<TPOCO> GetAll()
     {
         IReadOnlyCollection<TPOCO> result = _converter.Convert<IReadOnlyCollection<TPOCO>, List<TEntity>>(_store.ToList());
 
         return result;
     }
 
-    public TPOCO GetById(Guid id)
+    public virtual TPOCO GetById(Guid id)
     {
         TEntity entity = _store.FirstOrDefault(x => x.Id == id);
         TPOCO result = _converter.Convert<TPOCO, TEntity>(entity);
@@ -43,7 +43,7 @@ public class Repository<TEntity, TPOCO> : IRepository<TPOCO>
         return result;
     }
 
-    public void Update(Guid id, TPOCO poco)
+    public virtual void Update(Guid id, TPOCO poco)
     {
         TEntity oldEntity = _store.FirstOrDefault(x => x.Id == id);
 
@@ -55,18 +55,18 @@ public class Repository<TEntity, TPOCO> : IRepository<TPOCO>
         _context.Entry(oldEntity).CurrentValues.SetValues(newEntity);
     }
 
-    public void Add(TPOCO poco)
+    public virtual void Add(TPOCO poco)
     {
         TEntity entity = _converter.Convert<TEntity, TPOCO>(poco);
         _store.Add(entity);
     }
 
-    public void Commit()
+    public virtual void Commit()
     {
         _context.SaveChanges();
     }
 
-    public void DeleteById(Guid id)
+    public virtual void DeleteById(Guid id)
     {
         TEntity entity = _store.FirstOrDefault(x => x.Id == id);
         _store.Remove(entity);
