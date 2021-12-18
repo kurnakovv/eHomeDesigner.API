@@ -7,4 +7,7 @@ using System.Threading.Tasks;
 
 namespace eHomeDesigner.Data.IntegrationTests.Mocks;
 
-public class MockPOCO : IPOCO { }
+public class MockPOCO : BasePOCO 
+{
+    public string MockProperty { get; set; } 
+}

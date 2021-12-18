@@ -7,4 +7,7 @@ using System.Threading.Tasks;
 
 namespace eHomeDesigner.Data.IntegrationTests.Mocks;
 
-public class MockEntity : BaseEntity { }
+public class MockEntity : BaseEntity
+{
+    public string MockProperty { get; set; }
+}
