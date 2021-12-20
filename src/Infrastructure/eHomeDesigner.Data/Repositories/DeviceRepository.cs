@@ -13,5 +13,5 @@ namespace eHomeDesigner.Data.Repositories;
 
 public class DeviceRepository : Repository<DeviceEntity, BaseDevice>, IDeviceRepository<BaseDevice>
 {
-    public DeviceRepository(DeviceDbContext deviceContext, IConverter converter) : base(deviceContext, converter) { }
+    public DeviceRepository(DeviceDbContext context, IConverter converter) : base(context, converter) { }
 }
