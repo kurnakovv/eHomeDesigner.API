@@ -4,7 +4,7 @@ using eHomeDesigner.Application.Interfaces.Repositories;
 
 namespace eHomeDesigner.Application.Interfaces.POCOs.Rooms;
 
-public abstract class Room : IRoom
+public abstract class BaseRoom : BasePOCO, IRoom
 {
     public Guid Id { get; } = Guid.NewGuid();
     public Guid CustomerId { get; }
@@ -16,17 +16,17 @@ public abstract class Room : IRoom
     public IReadOnlyCollection<IFurniture> Furnitures => _furnitureRepository.GetAll();
     public IReadOnlyCollection<IDevice> Devices => _deviceRepository.GetAll();
 
-    private readonly IFurnitureRepository _furnitureRepository;
-    private readonly IDeviceRepository _deviceRepository;
+    private readonly IFurnitureRepository<BaseFurniture> _furnitureRepository;
+    private readonly IDeviceRepository<BaseDevice> _deviceRepository;
 
     private int _energy = 0;
     private int _price = 0;
 
-    public Room(
+    public BaseRoom(
                Guid customerId,
                int squareMeters,
-               IFurnitureRepository furnitureRepository,
-               IDeviceRepository deviceRepository
+               IFurnitureRepository<BaseFurniture> furnitureRepository,
+               IDeviceRepository<BaseDevice> deviceRepository
            )
     {
         CustomerId = customerId;
@@ -35,12 +35,12 @@ public abstract class Room : IRoom
         _deviceRepository = deviceRepository;
     }
 
-    public virtual void AddDevice(IDevice device)
+    public virtual void AddDevice(BaseDevice device)
     {
         _deviceRepository.Add(device);
     }
 
-    public virtual void AddFurniture(IFurniture furniture)
+    public virtual void AddFurniture(BaseFurniture furniture)
     {
         _furnitureRepository.Add(furniture);
     }

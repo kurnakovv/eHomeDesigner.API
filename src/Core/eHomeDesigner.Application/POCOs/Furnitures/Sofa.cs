@@ -1,15 +1,16 @@
-﻿using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
+﻿using eHomeDesigner.Application.Interfaces.POCOs;
+using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
 
 namespace eHomeDesigner.Application.POCOs.Furnitures;
 
-public class Sofa : IFurniture
+public class Sofa : BaseFurniture
 {
-    public Guid Id { get; }
+    public override Guid Id { get; }
 
-    public string Type => GetType().Name;
+    public override string Type => GetType().Name;
 
-    public int Price { get; }
-    public int SquareMeters { get; }
+    public override int Price { get; }
+    public override int SquareMeters { get; }
 
     public Sofa(
             Guid id,

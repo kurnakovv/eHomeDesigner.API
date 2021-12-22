@@ -1,15 +1,17 @@
-﻿using eHomeDesigner.Application.Interfaces.POCOs.Rooms;
+﻿using eHomeDesigner.Application.Interfaces.POCOs.Devices;
+using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
+using eHomeDesigner.Application.Interfaces.POCOs.Rooms;
 using eHomeDesigner.Application.Interfaces.Repositories;
 
 namespace eHomeDesigner.Application.POCOs.Rooms;
 
-public class Bedroom : Room
+public class Bedroom : BaseRoom
 {
     public Bedroom(
                Guid customerId,
                int squareMeters,
-               IFurnitureRepository furnitureRepository,
-               IDeviceRepository deviceRepository
+               IFurnitureRepository<BaseFurniture> furnitureRepository,
+               IDeviceRepository<BaseDevice> deviceRepository
            ) : base(customerId, squareMeters, furnitureRepository, deviceRepository) { }
 
     public override string Type => GetType().Name;

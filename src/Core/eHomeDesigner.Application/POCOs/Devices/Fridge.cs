@@ -1,18 +1,19 @@
-﻿using eHomeDesigner.Application.Interfaces.POCOs.Devices;
+﻿using eHomeDesigner.Application.Interfaces.POCOs;
+using eHomeDesigner.Application.Interfaces.POCOs.Devices;
 
 namespace eHomeDesigner.Application.POCOs.Devices;
 
-public class Fridge : IDevice
+public class Fridge : BaseDevice
 {
-    public Guid Id { get; }
+    public override Guid Id { get; }
 
-    public string Type => GetType().Name;
+    public override string Type => GetType().Name;
 
-    public int Price { get; }
-    public int SquareMeters { get; }
-    public int EnergyPerHour { get; }
+    public override int Price { get; }
+    public override int SquareMeters { get; }
+    public override int EnergyPerHour { get; }
 
-    public string Author { get; }
+    public override string Author { get; }
 
 
     private const int DAY = 24;
@@ -33,13 +34,13 @@ public class Fridge : IDevice
         Author = author;
     }
 
-    public int CalculateEnergyPerDay(int days)
+    public override int CalculateEnergyPerDay(int days)
     {
         int energy = (EnergyPerHour * DAY) * days;
         return energy;
     }
 
-    public int CalculateEnergyPrice(int energy)
+    public override int CalculateEnergyPrice(int energy)
     {
         int price = (int)(energy * FRIDGE_ENERGY_PERCENTAGE);
         return price;

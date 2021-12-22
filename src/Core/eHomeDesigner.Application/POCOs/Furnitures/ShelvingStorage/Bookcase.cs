@@ -1,16 +1,17 @@
-﻿using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
+﻿using eHomeDesigner.Application.Interfaces.POCOs;
+using eHomeDesigner.Application.Interfaces.POCOs.Furnitures;
 
 namespace eHomeDesigner.Application.POCOs.Furnitures.ShelvingStorage;
 
-public class Bookcase : IShelvingStorage
+public class Bookcase : BaseShelvingStorage
 {
-    public Guid Id { get; }
+    public override Guid Id { get; }
 
-    public string Type => GetType().Name;
+    public override string Type => GetType().Name;
 
-    public int Price { get; }
-    public int SquareMeters { get; }
-    public int Length { get; }
+    public override int Price { get; }
+    public override int SquareMeters { get; }
+    public override int Length { get; }
 
     public Bookcase(
             Guid id,
