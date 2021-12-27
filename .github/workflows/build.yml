@@ -38,6 +38,7 @@ jobs:
         shell: powershell
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
+          set DOTNET_CLI_TELEMETRY_OPTOUT=1
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner --version 6.0.*
           uses: actions/setup-dotnet@v1
       - name: Build and analyze
@@ -47,7 +48,6 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"KurnakovMaksim_eHomeDesigner.API" /o:"kurnakovmaksim" /d:sonar.login="${{ secrets.SONARCLOUDDD }}" /d:sonar.host.url="https://sonarcloud.io"
-          set DOTNET_CLI_TELEMETRY_OPTOUT=1
           dotnet restore
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONARCLOUDDD }}"
