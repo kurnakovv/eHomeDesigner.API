@@ -34,9 +34,6 @@ namespace eHomeDesigner.Data.Migrations
                     b.Property<DateTime>("DateOfCreate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeviceType")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("EnergyPerHour")
                         .HasColumnType("int");
 
@@ -45,6 +42,9 @@ namespace eHomeDesigner.Data.Migrations
 
                     b.Property<int>("SquareMeters")
                         .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

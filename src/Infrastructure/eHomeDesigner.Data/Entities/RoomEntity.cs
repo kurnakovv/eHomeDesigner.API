@@ -10,4 +10,5 @@ public class RoomEntity : BaseEntity
 {
     public CustomerEntity Customer { get; set; }
     public int SquareMeters { get; set; }
+    public string Type { get; set; }
 }

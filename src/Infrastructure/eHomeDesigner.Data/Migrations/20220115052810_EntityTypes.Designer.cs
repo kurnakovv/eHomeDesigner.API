@@ -3,17 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eHomeDesigner.Data.Contexts;
 
 #nullable disable
 
-namespace eHomeDesigner.Data.Migrations.ShelvingStorageDb
+namespace eHomeDesigner.Data.Migrations
 {
-    [DbContext(typeof(ShelvingStorageDbContext))]
-    partial class ShelvingStorageDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DeviceDbContext))]
+    [Migration("20220115052810_EntityTypes")]
+    partial class EntityTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,16 +24,19 @@ namespace eHomeDesigner.Data.Migrations.ShelvingStorageDb
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("eHomeDesigner.Data.Entities.ShelvingStorageEntity", b =>
+            modelBuilder.Entity("eHomeDesigner.Data.Entities.DeviceEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Author")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DateOfCreate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Length")
+                    b.Property<int>("EnergyPerHour")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
@@ -45,7 +50,7 @@ namespace eHomeDesigner.Data.Migrations.ShelvingStorageDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShelvingStorage");
+                    b.ToTable("Devices");
                 });
 #pragma warning restore 612, 618
         }

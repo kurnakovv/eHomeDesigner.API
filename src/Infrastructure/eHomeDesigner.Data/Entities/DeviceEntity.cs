@@ -12,5 +12,5 @@ public class DeviceEntity : BaseEntity
     public int SquareMeters { get; set; }
     public int EnergyPerHour { get; set; }
     public string Author { get; set; }
-    public string DeviceType { get; set; }
+    public string Type { get; set; }
 }

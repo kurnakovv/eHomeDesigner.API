@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eHomeDesigner.Data.Contexts;
 
@@ -11,9 +12,10 @@ using eHomeDesigner.Data.Contexts;
 namespace eHomeDesigner.Data.Migrations.ShelvingStorageDb
 {
     [DbContext(typeof(ShelvingStorageDbContext))]
-    partial class ShelvingStorageDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220115053508_ShelvingStorageType")]
+    partial class ShelvingStorageType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
