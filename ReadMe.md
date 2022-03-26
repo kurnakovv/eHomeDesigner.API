@@ -1,4 +1,6 @@
-# eHomeDesigner.API
+<div align="center">
+ <img src="docs/imgs/mainIcon.png" weight="100px" height="100px" />
+ <h2>eHomeDesigner.API</h2>
 
 [![.NET](https://github.com/KurnakovMaksim/eHomeDesigner.API/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/KurnakovMaksim/eHomeDesigner.API/actions/workflows/dotnet-build.yml)
 [![](https://tokei.rs/b1/github/KurnakovMaksim/eHomeDesigner.API)](https://github.com/KurnakovMaksim/eHomeDesigner.API)

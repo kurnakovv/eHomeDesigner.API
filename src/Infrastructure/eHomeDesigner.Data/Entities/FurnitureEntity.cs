@@ -10,4 +10,5 @@ public class FurnitureEntity : BaseEntity
 {
     public int Price { get; set; }
     public int SquareMeters { get; set; }
+    public string Type { get; set; }
 }

@@ -37,6 +37,9 @@ namespace eHomeDesigner.Data.Migrations.FurnitureDb
                     b.Property<int>("SquareMeters")
                         .HasColumnType("int");
 
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Furnitures");
